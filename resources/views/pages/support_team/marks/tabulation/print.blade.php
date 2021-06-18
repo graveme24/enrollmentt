@@ -34,7 +34,7 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>NAMES_OF_STUDENTS_IN_CLASS</th>
+                <th style="text-align: center">Student Name</th>
                 @foreach($subjects as $sub)
                     <th rowspan="2">{{ strtoupper($sub->slug ?: $sub->name) }}</th>
                 @endforeach
