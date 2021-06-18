@@ -93,12 +93,12 @@ class GuestController extends Controller
             ]);
             $mail =$data['email'];
 
-            $details = [
-                'title' => 'Mail from Haven of Wisdom',
-                'body' => 'Kindly login using your email with your password as: student',
-            ];
+            // $details = [
+            //     'title' => 'Mail from Haven of Wisdom',
+            //     'body' => 'Kindly login using your email with your password as: student',
+            // ];
 
-            Mail::to($mail)->send(new TestMail($details));
+            // Mail::to($mail)->send(new TestMail($details));
             return redirect()->route('guest')->with('wait', 'Registered Successfully');
             // return redirect()->route('login')->with('success', 'You have no permission for this page!');
 
