@@ -1,7 +1,7 @@
 {{--Marksheet--}}
 
 <li class="nav-item">
-    <a href="#" class="nav-link {{ in_array(Route::currentRouteName(), ['marks.show', 'marks.year_selector', 'pins.enter']) ? 'active' : '' }}">
+    <a href="{{ route('student.mysubjects', Qs::hash(Auth::user()->id)) }}" class="nav-link">
         <i class="icon-books"></i>
         <span>Enrolled Subjects</span>
     </a>

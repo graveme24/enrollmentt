@@ -74,9 +74,34 @@ class PaymentController extends Controller
 
         $d['sr'] = $this->student->findByUserId($st_id)->first();
         $mop = $d['sr']->mop_id;
-        $pr = $inv->get()->where('mop_id',  $mop);
-        $d['uncleared'] = $pr->where('paid', 0);
-        $d['cleared'] = $pr->where('paid', 1);
+        $pe = $inv->get()->where('mop_id',  $mop);
+        $d['uncleared'] = $pe->where('paid', 0);
+        $d['cleared'] = $pe->where('paid', 1);
+
+        // $class_id = $d['sr']->my_class_id;
+
+        $wh['my_class_id'] = $class_id = $d['sr']->my_class_id;
+        $pay1 = $this->pay->getPayment(['my_class_id' => $class_id, 'year' => $this->year])->where('mop_id', $mop)->get();
+        $pay2 = $this->pay->getGeneralPayment(['year' => $this->year])->where('mop_id', $mop)->get();
+        $payments = $pay2->count() ? $pay1->merge($pay2) : $pay1;
+        $students = $this->student->getRecord($wh)->where('mop_id', $mop)->get();
+
+        // dd($payments);
+
+        if($payments->count() && $students->count()){
+            foreach($payments as $p){
+                foreach($students as $st){
+                    $pr['mop_id'] = $p->mop_id;
+                    $pr['student_id'] = $st->user_id;
+                    $pr['payment_id'] = $p->id;
+                    $pr['year'] = $this->year;
+                    $rec = $this->pay->createRecord($pr);
+                    $rec->ref_no ?: $rec->update(['ref_no' => mt_rand(100000, 99999999)]);
+                }
+            }
+        }
+
+
 
         return view('pages.support_team.payments.invoice', $d);
     }
@@ -90,7 +115,7 @@ class PaymentController extends Controller
         $d['sr'] = $this->student->findByUserId($st_id)->first();
         $mop = $d['sr']->mop_id;
         $inv = $year ? $this->pay->getAllMyPR($st_id, $year) : $this->pay->getAllMyPR($st_id);
-        $pr = $inv->get()->where('mop_id',  $mop);
+        $pr = $inv->get();
         $d['uncleared'] = $pr->where('paid', 0) ;
         $d['cleared'] = $pr->where('paid', 1);
 
