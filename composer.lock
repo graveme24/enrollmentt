@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37f9ece954e99d543b4ef46fa7b97368",
+    "content-hash": "44850ea85aba02ba70a60a82bc199427",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1708,16 +1708,16 @@
         },
         {
             "name": "munafio/chatify",
-            "version": "v1.2.2",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/munafio/chatify.git",
-                "reference": "8d5f33ec2cf23abe4ef5edd348f241c279ad41a5"
+                "reference": "208db4d93086372fe5c04a1028a3427c4408004c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/munafio/chatify/zipball/8d5f33ec2cf23abe4ef5edd348f241c279ad41a5",
-                "reference": "8d5f33ec2cf23abe4ef5edd348f241c279ad41a5",
+                "url": "https://api.github.com/repos/munafio/chatify/zipball/208db4d93086372fe5c04a1028a3427c4408004c",
+                "reference": "208db4d93086372fe5c04a1028a3427c4408004c",
                 "shasum": ""
             },
             "require": {
@@ -1762,9 +1762,9 @@
             ],
             "support": {
                 "issues": "https://github.com/munafio/chatify/issues",
-                "source": "https://github.com/munafio/chatify/tree/v1.2.2"
+                "source": "https://github.com/munafio/chatify/tree/v1.2.3"
             },
-            "time": "2021-05-31T23:21:01+00:00"
+            "time": "2021-06-19T00:58:38+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -9244,7 +9244,10 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3"
+        "php": "^7.3",
+        "ext-ftp": "*",
+        "ext-bcmath": "*",
+        "ext-gmp": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
