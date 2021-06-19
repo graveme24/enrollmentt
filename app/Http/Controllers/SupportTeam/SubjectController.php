@@ -8,6 +8,7 @@ use App\Http\Requests\Subject\SubjectUpdate;
 use App\Repositories\MyClassRepo;
 use App\Repositories\UserRepo;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\StudentRecord;
 
 class SubjectController extends Controller
@@ -36,7 +37,7 @@ class SubjectController extends Controller
     {
 
 
-        $dd = StudentRecord::find($id)->my_class_id;
+        $dd = Auth::user()->student_record->my_class_id;
         $d['teachers'] = $this->user->getUserByType('teacher');
         $d['subjects'] = $this->my_class->getAllSubjects();
 

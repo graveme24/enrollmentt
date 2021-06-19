@@ -15,7 +15,7 @@
 <li class="nav-item">
     <a href="{{ route('student.balances', Qs::hash(Auth::user()->id)) }}"  class="nav-link">
         <i class="icon-coins"></i>
-        <span>Balances / Promissory</span>
+        <span>Balances</span>
     </a>
 </li>
 

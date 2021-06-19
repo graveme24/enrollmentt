@@ -12,7 +12,7 @@
                 <ul class="nav nav-tabs nav-tabs-highlight">
                     <li class="nav-item"><a href="#all-uc" class="nav-link active" data-toggle="tab">Uncompleted Payments</a></li>
                     <li class="nav-item"><a href="#all-cl" class="nav-link" data-toggle="tab">Completed Payments</a></li>
-                    <li class="nav-item"><a href="#all-pn" class="nav-link" data-toggle="tab">Prosmissory Note</a></li>
+                    {{-- <li class="nav-item"><a href="#all-pn" class="nav-link" data-toggle="tab">Prosmissory Note</a></li> --}}
                 </ul>
 
         <div class="tab-content">
@@ -124,7 +124,7 @@
                 </table>
 
             </div>
-            <div class="tab-pane fade" id="all-pn">
+            {{-- <div class="tab-pane fade" id="all-pn">
                 <div class="card content d-flex justify-content-center align-items-center">
                     <div class="card-header bg-white header-elements-inline">
                         <h6 class="card-title">Haven of Wisdom Academy Promissory Application</h6>
@@ -167,7 +167,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> --}}
         </div>
         </div>
     </div>
