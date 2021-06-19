@@ -16,8 +16,10 @@
         "laravel/ui": "^3.0",
         "munafio/chatify": "^1.2",
         "pusher/pusher-php-server": "^7.0",
+        "ext-ftp": "*",
         "ext-bcmath": "*",
         "ext-gmp": "*"
+
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
