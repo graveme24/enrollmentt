@@ -249,7 +249,7 @@ class StudentRecordController extends Controller
         // $srec['adm_no'] = $uname;
         $srec['session'] = Qs::getSetting('current_session');
 
-        $this->student->updateRecord($sr_id, $srec, $d); // Update St Rec
+        $this->student->updateRecord($sr_id, $srec); // Update St Rec
 
         /*** If Class/Section is Changed in Same Year, Delete Marks/ExamRecord of Previous Class/Section ****/
         Mk::deleteOldRecord($sr->user->id, $srec['my_class_id']);
