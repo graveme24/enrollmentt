@@ -1,16 +1,21 @@
 @extends('layouts.form')
 @section('content')
-<div class="container">
-        <div class="card content d-flex justify-content-center align-items-center">
-            <div class="card-header bg-white header-elements-inline">
-                <h6 class="card-title">Haven of Wisdom Academy Pre-Registration</h6>
-                {!! Qs::getPanelOptions() !!}
+
+<body style="background: url('global_assets/images/login_cover.jpg')">
+
+<div class="page-content login-cover">
+    <div class="container">
+        <div><br></div>
+        <div class="card content d-flex justify-content-center align-items-center" style="background: transparent; backdrop-filter: blur(8px) brightness(50%); color: white;">
+            <div class="card-header header-elements-inline">
+                <h4 class="card-title">Haven of Wisdom Academy Pre-Registration</h4>
+                {!! Qs::getPanel() !!}
             </div>
           <div class="card-body p-4">
               <form method="POST" action="{{ route('guest.create') }}" enctype="multipart/form-data">
                   @csrf
                   <div class="row" style="margin: 10px">
-                    <h3>Kindly fill up the form. Especially with the (*).</h3>
+                    <h3>Fill up the informations below. Fields with * are required.</h3>
                     </div>
                   <fieldset>
                     <div class="row">
@@ -119,9 +124,17 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="row" style="margin: 10px">
-                        <h3>Kindly fill up the form. Especially with the (*).</h3>
+                        {{-- <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="year_admitted">Year Admitted: <span class="text-danger">*</span></label>
+                                <select data-placeholder="Choose..." required name="year_admitted" id="year_admitted" class="select-search form-control">
+                                    <option value=""></option>
+                                    @for($y=date('Y', strtotime('- 10 years')); $y<=date('Y'); $y++)
+                                        <option {{ (old('year_admitted') == $y) ? 'selected' : '' }} value="{{ $y }}">{{ $y }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div> --}}
                     </div>
 
                     <div class="row">
@@ -212,4 +225,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection

@@ -46,6 +46,13 @@ class Qs
                 </div>';
     }
 
+    public static function getPanel()
+    {
+        return '    <div class="header-elements" >
+
+                </div>';
+    }
+
     public static function displaySuccess($msg)
     {
         return '
