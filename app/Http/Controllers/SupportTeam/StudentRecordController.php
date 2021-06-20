@@ -235,13 +235,13 @@ class StudentRecordController extends Controller
         $d['email'] = ($req->email);
         $uname = $d['year_admitted'].'-'.mt_rand(10000, 99999);
 
-        if($req->hasFile('photo')) {
-            $photo = $req->file('photo');
-            $f = Qs::getFileMetaData($photo);
-            $f['name'] = 'photo.' . $f['ext'];
-            $f['path'] = $photo->storeAs(Qs::getUploadPath('student').$sr->user->code, $f['name']);
-            $d['photo'] = asset('storage/' . $f['path']);
-        }
+        // if($req->hasFile('photo')) {
+        //     $photo = $req->file('photo');
+        //     $f = Qs::getFileMetaData($photo);
+        //     $f['name'] = 'photo.' . $f['ext'];
+        //     $f['path'] = $photo->storeAs(Qs::getUploadPath('student').$sr->user->code, $f['name']);
+        //     $d['photo'] = asset('storage/' . $f['path']);
+        // }
         $this->user->update($sr->user->id, $d); // Update User Details
 
         $srec = $req->only(Qs::getStudentData());

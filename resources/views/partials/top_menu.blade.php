@@ -38,7 +38,7 @@
             <li class="nav-item dropdown dropdown-user">
 
                 <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.Auth::user()->avatar) }}" width="33" height="38" class="rounded-circle" alt="photo">
+                    <img src="{{ Storage::disk('s3')->url('public/avatar/' . Auth::user()->avatar) }}" width="33" height="38" class="rounded-circle" alt="photo">
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">

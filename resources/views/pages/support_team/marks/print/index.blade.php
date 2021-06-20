@@ -20,7 +20,7 @@
                     </span></strong>
                 </td>
                 <td style="width: 100px; height: 100px; float: left;">
-                    <img src="{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.$sr->user->avatar) }}"
+                    <img src="{{ Storage::disk('s3')->url('public/avatar/' . $sr->user->avatar) }}"
                          alt="..."  width="100" height="100">
                 </td>
             </tr>

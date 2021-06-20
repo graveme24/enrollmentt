@@ -35,7 +35,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Age:</label>
-                                <input min="1" type="number" name="age" placeholder="Age" class="form-control" value="{{ $sr->user->age }}">
+                                <input min="1" type="number" name="age" id="age" placeholder="Age" class="form-control" value="{{ $sr->age }}">
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Date of Birth: <span class="text-danger">*</span></label>
-                                <input name="dob" value="{{ $sr->user->dob }}" type="date" class="form-control date-pick" placeholder="Select Date...">
+                                <input name="dob" value="{{ $sr->user->dob }}" type="text" class="form-control date-pick" placeholder="Select Date...">
 
                             </div>
                         </div>
@@ -162,15 +162,6 @@
                             <div class="form-group">
                                 <label>Relationship:</label>
                                 <input value="{{$sr->user->grel }}" type="text" name="grel" class="form-control" placeholder="" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="d-block">Upload 2x2 Photo:</label>
-                                <input value="{{ $sr->user->photo }}" accept="image/*" type="file" name="photo" class="form-input-styled" data-fouc>
-                                <span class="form-text text-muted">Accepted Images: jpeg, png. Max file size 2Mb</span>
                             </div>
                         </div>
                     </div>

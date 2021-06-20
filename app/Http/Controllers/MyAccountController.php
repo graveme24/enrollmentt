@@ -59,7 +59,7 @@ class MyAccountController extends Controller
                 if (in_array($file->getClientOriginalExtension(), $allowed_images)) {
                     // delete the older one
                     if (Auth::user()->avatar != config('chatify.user_avatar.default')) {
-                        $path = storage_path('app/' . config('chatify.user_avatar.folder') . '/' . Auth::user()->avatar);
+                        $path = storage_path('public/' . 'avatar/' . Auth::user()->avatar);
                         if (file_exists($path)) {
                             @unlink($path);
                         }
@@ -67,7 +67,7 @@ class MyAccountController extends Controller
                     // upload
                     $avatar = Str::uuid() . "." . $file->getClientOriginalExtension();
                     $update = User::where('id', Auth::user()->id)->update(['avatar' => $avatar]);
-                    $file->storeAs("/" . config('chatify.user_avatar.folder'), $avatar);
+                    $file->storeAs('public/' . '/' .'avatar/', $avatar, 's3');
 
                     $success = $update ? 1 : 0;
                 } else {

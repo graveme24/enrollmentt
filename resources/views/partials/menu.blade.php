@@ -22,7 +22,7 @@
                 <div class="media">
                     <div class="mr-3">
                         <a href="{{ route('my_account') }}">
-                            <img src="{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.Auth::user()->avatar) }}" width="37" height="38" class="rounded-circle" alt="photo">
+                            <img src="{{ Storage::disk('s3')->url('public/avatar/' . Auth::user()->avatar) }}" width="37" height="38" class="rounded-circle" alt="photo">
                         </a>
                     </div>
 

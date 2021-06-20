@@ -28,7 +28,7 @@
             @endif
 
         <div class="avatar av-m"
-            style="background-image: url('{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.$user->avatar) }}');">
+            style="background-image: url('{{ Storage::disk('s3')->url('public/avatar/' . $user->avatar) }}');">
         </div>
 
         </td>
@@ -70,7 +70,7 @@
         {{-- Avatar side --}}
         <td>
         <div class="avatar av-m"
-        style="background-image: url('{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.$user->avatar) }}');">
+        style="background-image: url('{{ Storage::disk('s3')->url('public/avatar/' . $user->avatar) }}');">
         </div>
         </td>
         {{-- center side --}}

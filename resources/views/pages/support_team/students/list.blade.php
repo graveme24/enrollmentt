@@ -101,7 +101,7 @@
                             @foreach($students->where('section_id', $se->id) as $sr)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img class="rounded-circle" style="height: 40px; width: 40px;" src="{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.$sr->user->avatar) }}" alt="photo"></td>
+                                    <td><img class="rounded-circle" style="height: 40px; width: 40px;" src="{{ Storage::disk('s3')->url('public/avatar/' . $sr->user->avatar) }}" alt="photo"></td>
                                     <td>{{ $sr->user->name }}</td>
                                     <td>{{ $sr->adm_no }}</td>
                                     <td>{{ $sr->section->name }}</td>
