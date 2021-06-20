@@ -34,9 +34,9 @@ class MyAccountController extends Controller
 
         $d = $user->username ? $req->only(['email', 'phone', 'address']) : $req->only(['email', 'phone', 'address']);
 
-        if(!$user->username && !$req->username && !$req->email){
-            return back()->with('pop_error', __('msg.user_invalid'));
-        }
+        // if(!$user->username && !$req->username && !$req->email){
+        //     return back()->with('pop_error', __('msg.user_invalid'));
+        // }
 
         $user_type = $user->user_type;
         $code = $user->code;
@@ -71,8 +71,8 @@ class MyAccountController extends Controller
                 $error = 1;
             }
         }
-        $users = $user->whereColumn('id', Auth::user()->id);
-        $this->user->update($users, $d);
+
+        $this->user->update($user->id, $d);
         return back()->with('flash_success', __('msg.update_ok'));
     }
 
