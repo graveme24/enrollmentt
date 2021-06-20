@@ -91,24 +91,7 @@ class GuestController extends Controller
                 'session'=> Qs::getSetting('current_session'),
                 'year_admitted' => $yr,
             ]);
-            $mail =$data['email'];
-
-            // $details = [
-            //     'title' => 'Mail from Haven of Wisdom',
-            //     'body' => 'Kindly login using your email with your password as: student',
-            // ];
-
-            // Mail::to($mail)->send(new TestMail($details));
-            return redirect()->route('guest')->with('wait', 'Registered Successfully');
-            // return redirect()->route('login')->with('success', 'You have no permission for this page!');
-
-        // if($data->hasFile('photo')) {
-        //     $photo = $data['photo']->file('photo');
-        //     $f = Qs::getFileMetaData($photo);
-        //     $f['name'] = 'photo.' . $f['ext'];
-        //     $f['path'] = $photo->storeAs(Qs::getUploadPath('student').$data['code'], $f['name']);
-        //     $data['photo'] = asset('storage/' . $f['path']);
-        // }
+            return redirect()->route('guest')->with('wait', 'Application Submitted, wait for an email confirmation. Thank You.');
     }
     public function promissory(Request $req, $sr_id){
         $sr_id = Qs::decodeHash($sr_id);

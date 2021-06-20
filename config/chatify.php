@@ -15,7 +15,7 @@ return [
     |-------------------------------------
     */
     'routes' => [
-        'prefix' => env('CHATIFY_ROUTES_PREFIX', 'messenger'),
+        'prefix' => env('CHATIFY_ROUTES_PREFIX', 'chatify'),
         'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
         'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'App\Http\Controllers\vendor\Chatify'),
     ],
@@ -26,12 +26,12 @@ return [
     |-------------------------------------
     */
     'pusher' => [
-        'key' => env('PUSHER_APP_KEY'),
-        'secret' => env('PUSHER_APP_SECRET'),
-        'app_id' => env('PUSHER_APP_ID'),
-        'options' => (array) [
-            'cluster' => env('PUSHER_APP_CLUSTER'),
-            'useTLS' => env('PUSHER_APP_USETLS'),
+    'key' => env('PUSHER_APP_KEY'),
+    'secret' => env('PUSHER_APP_SECRET'),
+    'app_id' => env('PUSHER_APP_ID'),
+    'options' => (array) [
+        'cluster' => env('PUSHER_APP_CLUSTER'),
+        'useTLS' => env('PUSHER_APP_USETLS'),
         ],
     ],
 
