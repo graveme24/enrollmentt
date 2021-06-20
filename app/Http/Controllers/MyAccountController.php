@@ -41,15 +41,7 @@ class MyAccountController extends Controller
         $user_type = $user->user_type;
         $code = $user->code;
 
-        // if($req->hasFile('photo')) {
-        //     $photo = $req->file('photo');
-        //     $f = Qs::getFileMetaData($photo);
-        //     $f['name'] = 'photo.' . $f['ext'];
-        //     $f['path'] = $photo->storeAs(Qs::getUploadPath($user_type).$code, $f['name']);
-        //     $d['photo'] = asset('storage/' . $f['path']);
-        // }
-
-        if ($req->hasFile('photo')) {
+        if ($req->hasFile('avatar')) {
             // allowed extensions
             $allowed_images = Chatify::getAllowedImages();
 
