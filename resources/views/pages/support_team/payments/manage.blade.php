@@ -68,7 +68,7 @@
                     @foreach($cash as $s)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><img class="rounded-circle" style="height: 40px; width: 40px;" src="{{ Storage::disk('s3')->url('public/avatar/' . $sr->user->avatar) }}" alt="photo"></td>
+                            <td><img class="rounded-circle" style="height: 40px; width: 40px;" src="{{ Storage::disk('s3')->url('public/avatar/' . $s->user->avatar) }}" alt="photo"></td>
                             <td>{{ $s->user->name }}</td>
                             <td>{{ $s->mop->name }}</td>
                             <td>{{ $s->adm_no }}</td>
