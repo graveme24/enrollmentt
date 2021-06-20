@@ -25,7 +25,7 @@
 
         {{--Background Logo--}}
         <div style="position: relative;  text-align: center; ">
-            <img src="{{ $s['logo'] }}"
+            <img src="{{ Storage::disk('s3')->url($s['logo']) }}"
                  style="max-width: 500px; max-height:600px; margin-top: 60px; position:absolute ; opacity: 0.1; margin-left: auto;margin-right: auto; left: 0; right: 0;"/>
         </div>
 
@@ -48,7 +48,7 @@
 
         {{--Photo--}}
         <div style="margin: 15px;">
-            <img style="width: 100px; height: 100px; float: left;" src="{{ $sr->user->avatar }}" alt="...">
+            <img style="width: 100px; height: 100px; float: left;" src="{{ Storage::disk('s3')->url('public/avatar/' . $sr->user->avatar) }}" alt="...">
         </div>
 
        <div style="float: left; margin-left: 20px">

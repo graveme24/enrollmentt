@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <form method="post" action="{{ route('my_account.change_pass') }}">
-                                @csrf @method('put')
+                                @csrf @method('PUT')
 
                                 <div class="form-group row">
                                     <label for="current_password" class="col-lg-3 col-form-label font-weight-semibold">Current Password <span class="text-danger">*</span></label>
@@ -114,7 +114,7 @@
                                     <div class="form-group row">
                                         <label for="address" class="col-lg-3 col-form-label font-weight-semibold">Change Photo </label>
                                         <div class="col-lg-9">
-                                            <input  accept="image/*" type="file" name="avatar" class="form-input-styled" data-fouc>
+                                            <input accept="image/*" type="file" name="avatar" class="form-input-styled" data-fouc>
                                         </div>
                                     </div>
 

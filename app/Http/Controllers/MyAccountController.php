@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Chatify\Facades\ChatifyMessenger as Chatify;
 use Illuminate\Support\Str;
 use App\User;
+use Illuminate\Support\Facades\Storage;
 
 class MyAccountController extends Controller
 {
@@ -32,7 +33,7 @@ class MyAccountController extends Controller
     {
         $user = Auth::user();
 
-        $d = $user->username ? $req->only(['email', 'phone', 'address']) : $req->only(['email', 'phone', 'address']);
+        $d = $user->username ? $req->all(['email', 'phone', 'address']) : $req->only(['email', 'phone', 'address']);
 
         if(!$user->username && !$req->username && !$req->email){
             return back()->with('pop_error', __('msg.user_invalid'));
@@ -51,7 +52,7 @@ class MyAccountController extends Controller
                 if (in_array($file->getClientOriginalExtension(), $allowed_images)) {
                     // delete the older one
                     if (Auth::user()->avatar != config('chatify.user_avatar.default')) {
-                        $path = storage_path('public/' . 'avatar/' . Auth::user()->avatar);
+                        $path = Storage::disk('s3')->url('public/' . '/'.  'avatar/', Auth::user()->avatar);
                         if (file_exists($path)) {
                             @unlink($path);
                         }
