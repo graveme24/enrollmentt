@@ -39,7 +39,7 @@
                     @foreach($students as $s)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td><img class="rounded-circle" style="height: 40px; width: 40px;" src="{{ asset('/storage/'.config('chatify.user_avatar.folder').'/'.$s->user->avatar) }}" alt="photo"></td>
+                        <td><img class="rounded-circle" style="height: 40px; width: 40px;" src="{{ Storage::disk('s3')->url('public/avatar/' . $s->user->avatar) }}" alt="photo"></td>
                         <td>{{ $s->user->name }}</td>
                         <td>{{ $s->adm_no }}</td>
                         <td>{{ $s->my_class->name.' '.$s->section->name }}</td>
