@@ -78,7 +78,7 @@ class GuestController extends Controller
                 'address' => $data['address'],
                 'code' => $data['code'] = strtoupper(Str::random(10)),
                 'password' => $data['password'] = Hash::make('student'),
-                'photo' => $data['photo'] = Qs::getDefaultUserImage(),
+                'avatar' => $data['photo'] = Qs::getDefaultUserImage(),
                 'username' => $suername,
             ]);
             $status = "0";

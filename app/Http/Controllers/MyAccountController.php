@@ -71,8 +71,8 @@ class MyAccountController extends Controller
                 $error = 1;
             }
         }
-
-        $this->user->update($user->id, $d);
+        $users = $user->whereColumn('id', Auth::user()->id);
+        $this->user->update($users, $d);
         return back()->with('flash_success', __('msg.update_ok'));
     }
 
