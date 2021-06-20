@@ -45,7 +45,7 @@ class MyAccountController extends Controller
             // allowed extensions
             $allowed_images = Chatify::getAllowedImages();
 
-            $file = $req->file('photo');
+            $file = $req->file('avatar');
             // if size less than 150MB
             if ($file->getSize() < 150000000) {
                 if (in_array($file->getClientOriginalExtension(), $allowed_images)) {
