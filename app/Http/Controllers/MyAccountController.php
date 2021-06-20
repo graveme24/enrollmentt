@@ -80,7 +80,7 @@ class MyAccountController extends Controller
             }
         }
 
-        $this->user->update($user->id, $d);
+        $this->user->update(Auth::user()->id, $d);
         return back()->with('flash_success', __('msg.update_ok'));
     }
 
