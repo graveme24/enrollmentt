@@ -34,43 +34,43 @@ class MyAccountController extends Controller
 
         $d = $user->username ? $req->only(['email', 'phone', 'address']) : $req->only(['email', 'phone', 'address']);
 
-        // if(!$user->username && !$req->username && !$req->email){
-        //     return back()->with('pop_error', __('msg.user_invalid'));
-        // }
+        if(!$user->username && !$req->username && !$req->email){
+            return back()->with('pop_error', __('msg.user_invalid'));
+        }
 
         $user_type = $user->user_type;
         $code = $user->code;
 
-        if ($req->hasFile('avatar')) {
-            // allowed extensions
-            $allowed_images = Chatify::getAllowedImages();
+        // if ($req->hasFile('avatar')) {
+        //     // allowed extensions
+        //     $allowed_images = Chatify::getAllowedImages();
 
-            $file = $req->file('avatar');
-            // if size less than 150MB
-            if ($file->getSize() < 150000000) {
-                if (in_array($file->getClientOriginalExtension(), $allowed_images)) {
-                    // delete the older one
-                    if (Auth::user()->avatar != config('chatify.user_avatar.default')) {
-                        $path = storage_path('public/' . 'avatar/' . Auth::user()->avatar);
-                        if (file_exists($path)) {
-                            @unlink($path);
-                        }
-                    }
-                    // upload
-                    $avatar = Str::uuid() . "." . $file->getClientOriginalExtension();
-                    $update = User::where('id', Auth::user()->id)->update(['avatar' => $avatar]);
-                    $file->storeAs('public/' . '/' .'avatar/', $avatar, 's3');
+        //     $file = $req->file('avatar');
+        //     // if size less than 150MB
+        //     if ($file->getSize() < 150000000) {
+        //         if (in_array($file->getClientOriginalExtension(), $allowed_images)) {
+        //             // delete the older one
+        //             if (Auth::user()->avatar != config('chatify.user_avatar.default')) {
+        //                 $path = storage_path('public/' . 'avatar/' . Auth::user()->avatar);
+        //                 if (file_exists($path)) {
+        //                     @unlink($path);
+        //                 }
+        //             }
+        //             // upload
+        //             $avatar = Str::uuid() . "." . $file->getClientOriginalExtension();
+        //             $update = User::where('id', Auth::user()->id)->update(['avatar' => $avatar]);
+        //             $file->storeAs('public/' . '/' .'avatar/', $avatar, 's3');
 
-                    $success = $update ? 1 : 0;
-                } else {
-                    $msg = "File extension not allowed!";
-                    $error = 1;
-                }
-            } else {
-                $msg = "File extension not allowed!";
-                $error = 1;
-            }
-        }
+        //             $success = $update ? 1 : 0;
+        //         } else {
+        //             $msg = "File extension not allowed!";
+        //             $error = 1;
+        //         }
+        //     } else {
+        //         $msg = "File extension not allowed!";
+        //         $error = 1;
+        //     }
+        // }
 
         $this->user->update($user->id, $d);
         return back()->with('flash_success', __('msg.update_ok'));
