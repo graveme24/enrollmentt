@@ -31,8 +31,8 @@ class MyAccountController extends Controller
     public function update_profile(UserUpdate $req)
     {
         $user = Auth::user();
-
-        $d = $user->username ? $req->only(['email', 'phone', 'address']) : $req->only(['email', 'phone', 'address']);
+        $uid = Auth::user()->id;
+        $d = $user->username ?: $req->only(['email', 'phone', 'address']);
 
         if(!$user->username && !$req->username && !$req->email){
             return back()->with('pop_error', __('msg.user_invalid'));
@@ -80,7 +80,7 @@ class MyAccountController extends Controller
             }
         }
 
-        $this->user->update(Auth::user()->id, $d);
+        $this->user->update($uid, $d);
         return back()->with('flash_success', __('msg.update_ok'));
     }
 
