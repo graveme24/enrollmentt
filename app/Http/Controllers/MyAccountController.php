@@ -72,7 +72,7 @@ class MyAccountController extends Controller
             }
         }
 
-        $user->update($d);
+        $this->user->update($user->id, $d);
         return back()->with('flash_success', __('msg.update_ok'));
     }
 
