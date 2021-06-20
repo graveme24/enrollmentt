@@ -42,9 +42,9 @@ class SettingController extends Controller
             $logo = $req->file('logo');
             $f = Qs::getFileMetaData($logo);
             $f['name'] = 'logo.' . $f['ext'];
-            $f['path'] = $logo->storeAs('public/' . '/' .'avatar/', $logo, 's3');
-            $logo_path = asset('storage/' . $f['path']);
-            $this->setting->update('logo', $logo_path);
+            $f['path'] = $logo->storeAs('public', $f['name'], 's3');
+
+            $this->setting->update('logo', $f['path']);
         }
 
         return back()->with('flash_success', __('msg.update_ok'));
